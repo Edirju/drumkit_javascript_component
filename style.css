@@ -1,0 +1,197 @@
+/* >======< Reset & Variables CSS >======< */
+:root{
+  --clr-primary-yellow: #ffc134;
+  --clr-black: hsl(210, 19%, 15%);
+  --clr-white: hsl(43, 100%, 99%);
+  --clr-primary-yellow-trans: hsla(42,100%,60%,0.5);
+  --clr-black-opacity: hsla(210, 19%, 15%, 0.5);
+  --clr-white-opacity: hsla(43, 100%, 99%, 0.5);
+
+  --ff-base: 'Inter';
+  --ff-keys: 'Lexend Deca';
+
+}
+/*Carga de fuentes*/
+@font-face {
+  font-family: 'Inter';
+  src: url(./assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
+}
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url(./assets/fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: var(--ff-base);
+  font-size: 1em;
+  background: url(./assets/images/background1.jpg);
+  background-size: cover;
+  color: var(--clr-black); 
+}
+
+/* General CSS */
+/* ===> Contenedor General */
+.container{
+  padding: 1rem;
+  border: 0.25rem solid var(--clr-black);
+  border-radius: 0.625rem;
+  width: 21.4375rem;
+  height: auto; /*46.4375rem*/
+  margin: 2.5rem auto 1rem;
+  background-color: var(--clr-white-opacity);
+  box-shadow: 0px 0px 20px 4px rgba(255, 255, 255, 0.25);
+  & .container__title{
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px 4px var(--clr-black-opacity);
+    border-radius: 0.5rem;
+    padding: 0.1875em;
+    margin-bottom: 1rem;
+  }
+  & .container__text{
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+}
+/* Contenedor de Keys */
+.keys {
+  display: grid;
+  height: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  
+}
+
+.key {
+  font-family: var(--ff-keys);
+  border: 0.1875rem solid var(--clr-black);
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  width: 8rem;
+  background: var(--clr-black-opacity);
+  color: var(--clr-white);
+  text-shadow: rgba(0, 0, 0, 0.8);
+  transition: all 0.07s ease;
+  & kbd{
+    display: block;
+    font-size: 4rem;
+  }
+  & .sound{
+    color: var(--clr-primary-yellow);
+    text-shadow: rgba(0, 0, 0, 0.8);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.playing{
+  border-color: var(--clr-primary-yellow);
+  box-shadow: 0 0 1rem var(--clr-primary-yellow);
+  transform: scale(1.1);
+}
+
+/* Link Follow Me*/
+.link{
+  /* z-index: 10; */
+  position: fixed;
+  background-color: var(--clr-black);
+  padding: 1.4375rem 2.5rem;
+  right: -5rem;
+  border-radius: 0.3125rem;
+  top: 50%;
+
+  transform: translateY(-50%);
+  transform: rotate(-90deg);
+
+  font-size: 1.125em;
+  font-weight: 500;
+  color: var(--clr-white);
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.1s ease-in-out;
+  & i{
+    padding-left: 0.4375rem;
+  }
+  &:hover{
+    text-decoration: underline;
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+  }
+}
+
+.attribution {
+  font-size: 0.6875em; /*11px*/
+  text-align: center;
+  color: var(--clr-white);
+  margin-bottom: 1rem;
+  & a {
+    text-decoration: none;
+    color: var(--clr-primary-yellow);
+  }
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .container{
+    width: 28rem;
+  }
+  .keys{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container{
+    width: 62rem;
+    margin: 8.75rem auto 4rem;
+    & .container__title{
+      margin: 0 auto;
+      font-size: 2em;
+      width: 28rem;
+      margin-bottom: 1rem;
+    }
+    & .container__text{
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+    }
+  }
+  .keys{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    & kbd{
+      font-size: 2.5rem;
+    }
+    & .sound{
+      font-size: 0.875rem;
+    }
+  }
+  .key{
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container{
+    width: 78rem;
+  }
+  .keys{
+    padding: 60px 0;
+  }
+}
